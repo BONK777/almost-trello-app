@@ -49,7 +49,6 @@ block.forEach(board =>{
     board.addEventListener("drop", function(e) {
         e.preventDefault();
         e.stopPropagation();
-        // let dropTag = e.dataTransfer.getData("text/html");
         if (dropEl === this) {
             this.appendChild(dragEl);
         } else {
