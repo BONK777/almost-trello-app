@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    background-color: #333;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board {
+    width: 300px;
+    padding: 20px;
+    background-color: #222;
+    display: grid;
+    gap: 20px;
+    height: 800px;
+    align-content: flex-start;
+    text-align: center;
+    margin: 30px;
+    border-radius: 5px;
+    border: 1px solid olivedrab;
+}
+.board__name{
+    background-color: olivedrab;
+    border-radius: 5px;
+    color: ghostwhite;
+    cursor: pointer;
+}
+
+.item {
+    height: 50px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    position: relative;
+    cursor: move;
+    user-select: none;
+}
+.item::before {
+    position: absolute;
+    content: attr(title);
+    top: 10px;
+    right: 10px;
+    color: olivedrab;
+    font-weight: bold;
+    text-shadow: -1px -1px 1px #222, -1px 1px 1px #222, 1px -1px 1px #222, 1px 1px 1px #222, 0 -1px 1px #222, 0 1px 1px #222, -1px 0 1px #222, 1px 0 1px #222;
+}
+.item::after {
+    min-height: 0;
+    transition: min-height .5s linear;
+}
+.isDragging {
+    background-color: rgb(165, 190, 116);
+}
+.dragOver {
+    margin-bottom: 70px;
+    position: relative;
+    transition: margin-bottom .5s linear;
+}
+.dragOver::after {
+    content: "drop here";
+    min-height: 50px;
+    border: 1px solid #ddd;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: -70px;
+    border-radius: inherit;
+}
